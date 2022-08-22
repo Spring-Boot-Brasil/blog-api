@@ -1,4 +1,4 @@
-package br.com.springbootbrasil.api;
+package br.com.springbootbrasil.useraccount;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
