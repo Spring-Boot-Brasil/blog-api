@@ -20,6 +20,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>${groupId}</groupId>
+            <artifactId>bases</artifactId>
+            <version>${version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
