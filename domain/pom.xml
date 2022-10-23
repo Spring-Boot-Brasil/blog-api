@@ -10,10 +10,10 @@
         <version>${revision}</version>
     </parent>
 
-    <artifactId>model</artifactId>
-    <name>model</name>
+    <artifactId>domain</artifactId>
+    <name>domain</name>
     <version>${revision}</version>
-    <description>Models</description>
+    <description>Domain</description>
 
     <properties>
     </properties>

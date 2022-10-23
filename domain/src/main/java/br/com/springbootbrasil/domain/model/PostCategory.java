@@ -1,4 +1,4 @@
-package br.com.springbootbrasil.model;
+package br.com.springbootbrasil.domain.model;
 
 import br.com.springbootbrasil.bases.BaseEntity;
 import lombok.Data;
@@ -6,12 +6,14 @@ import lombok.Data;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
-@Entity(name = "like")
+@Entity(name = "post_category")
 @Data
-public class Like extends BaseEntity {
-    @ManyToOne
-    private User user;
+public class PostCategory extends BaseEntity {
 
     @ManyToOne
     private Post post;
+
+    @ManyToOne
+    private Category category;
+
 }

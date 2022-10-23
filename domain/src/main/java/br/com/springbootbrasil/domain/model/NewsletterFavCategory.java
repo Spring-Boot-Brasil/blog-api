@@ -1,4 +1,4 @@
-package br.com.springbootbrasil.model;
+package br.com.springbootbrasil.domain.model;
 
 import br.com.springbootbrasil.bases.BaseEntity;
 import lombok.Data;
@@ -6,12 +6,12 @@ import lombok.Data;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
-@Entity(name = "post_category")
+@Entity(name = "newsletter_fav_category")
 @Data
-public class PostCategory extends BaseEntity {
+public class NewsletterFavCategory extends BaseEntity {
 
     @ManyToOne
-    private Post post;
+    private Newsletter newsletter;
 
     @ManyToOne
     private Category category;

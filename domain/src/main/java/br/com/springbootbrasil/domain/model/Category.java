@@ -1,4 +1,4 @@
-package br.com.springbootbrasil.model;
+package br.com.springbootbrasil.domain.model;
 
 import br.com.springbootbrasil.bases.BaseEntity;
 import lombok.Data;
