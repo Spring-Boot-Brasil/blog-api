@@ -26,7 +26,7 @@ public class CategoryController extends BaseController<Category, CategoryDto> {
     }
 
     @GetMapping
-    private List<CategoryDto> getAll() {
+    public List<CategoryDto> getAll() {
         return service.getAll()
                 .stream()
                 .map(mapper::toDto)

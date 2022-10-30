@@ -14,7 +14,7 @@ public class CategoryService extends BaseService<Category> {
 
     private final CategoryRepository repository;
 
-    protected CategoryService(EntityManager entityManager, CategoryRepository repository) {
+    public CategoryService(EntityManager entityManager, CategoryRepository repository) {
         super(entityManager, repository);
         this.repository = repository;
     }
