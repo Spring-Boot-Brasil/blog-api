@@ -17,10 +17,15 @@ public class PostService extends BaseService<Post> {
     }
 
     public List<Post> getEmDestaque() {
+        // TODO tem que retornar 5 noticias dos destaques
         return Collections.emptyList();
     }
 
-    public List<Post> getTop4Visualizadas() {
+    public List<Post> getTop5Visualizadas() {
+        return Collections.emptyList();
+    }
+
+    public List<Post> getTop5PorCategoria(String categoryId) {
         return Collections.emptyList();
     }
 

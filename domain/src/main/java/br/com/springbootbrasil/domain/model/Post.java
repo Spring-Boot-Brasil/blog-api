@@ -18,6 +18,12 @@ public class Post extends BaseEntity {
     @OneToOne
     private User reviewer;
 
+//    @Column(name = "author_id", nullable = false)
+//    private String authorId;
+//
+//    @Column(name = "reviewer_id", nullable = false)
+//    private String reviewerId;
+
     @Column(name = "short_url", nullable = false)
     private String shortUrl;
 
@@ -27,7 +33,7 @@ public class Post extends BaseEntity {
     @Column(nullable = false)
     private String subtitle;
 
-    @Column(columnDefinition = "LONGTEXT", nullable = false)
+    @Column(columnDefinition = "TEXT", nullable = false)
     private String content;
 
     @Column(name = "banner_img", nullable = false)

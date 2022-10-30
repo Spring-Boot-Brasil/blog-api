@@ -79,7 +79,11 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
         var interceptor = http.authorizeRequests();
 
         securityProperties.getRouteAllowed().forEach(r -> {
-            interceptor.antMatchers(r.getMethod(), r.getPath()).permitAll();
+            if (r.getMethod() == null) {
+                interceptor.antMatchers(r.getPath()).permitAll();
+            } else {
+                interceptor.antMatchers(r.getMethod(), r.getPath()).permitAll();
+            }
         });
 
         interceptor.anyRequest().authenticated();

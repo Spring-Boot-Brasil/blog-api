@@ -35,5 +35,5 @@ base:
     route-allowed:
       - method: OPTIONS
         path: /**
-      - method: GET
-        path: /v1/posts/**
+      - method:
+        path: /v1/**

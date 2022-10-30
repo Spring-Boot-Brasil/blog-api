@@ -1,10 +1,10 @@
 package br.com.springbootbrasil.domain.repository;
 
 import br.com.springbootbrasil.bases.BaseRepository;
-import br.com.springbootbrasil.domain.model.Like;
+import br.com.springbootbrasil.domain.model.PostLikes;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface LikeRepository extends BaseRepository<Like> {
+public interface PostLikesRepository extends BaseRepository<PostLikes> {
 
 }
