@@ -14,6 +14,13 @@ spring:
             - Path=/user-account/**
           filters:
             - StripPrefix=1
+        ## NEWS SERVICE
+        - id: news-service
+          uri: lb://news-service
+          predicates:
+            - Path=/news-service/**
+          filters:
+            - StripPrefix=1
 
   main:
     allow-bean-definition-overriding: true

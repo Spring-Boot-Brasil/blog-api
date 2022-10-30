@@ -1,6 +1,6 @@
 package br.com.springbootbrasil.bases.security;
 
-import br.com.psdit.basecoreapi.BaseUser;
+import br.com.springbootbrasil.bases.BaseUser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

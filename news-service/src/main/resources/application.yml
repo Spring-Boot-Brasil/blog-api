@@ -1,0 +1,39 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: news-service
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database: postgresql
+  datasource:
+    url: jdbc:postgresql://localhost:5432/blog-api
+    username: blog-api-user
+    password: 123456
+    driver-class-name: org.postgresql.Driver
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8081/eureka
+    fetch-registry: true
+    register-with-eureka: true
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    reactor.netty.http.client: DEBUG
+
+base:
+  security:
+    route-allowed:
+      - method: OPTIONS
+        path: /**
+      - method: GET
+        path: /v1/posts/**

@@ -1,7 +1,7 @@
 package br.com.springbootbrasil.bases.security;
 
 
-import br.com.psdit.basecoreapi.BaseUser;
+import br.com.springbootbrasil.bases.BaseUser;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 

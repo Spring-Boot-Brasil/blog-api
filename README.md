@@ -2,4 +2,7 @@
 ![](docs/arch-blog-api.jpg)
 
 ## Build All Service
-- `mvn clean install -DskipTests` or `.\mvnw clean install -DskipTests`
+- `mvn clean install -DskipTests -X`
+- `.\mvnw clean install -DskipTests -X`
+- `mvn clean install -pl bases -am -DskipTests`
+- `mvn clean install -pl domain -am -DskipTests -X`

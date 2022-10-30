@@ -7,6 +7,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Data;
+import lombok.SneakyThrows;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -34,10 +35,6 @@ public class User extends BaseEntity implements BaseUser {
     @Column(name = "profiles", columnDefinition = "JSON", nullable = false)
     private String profiles;
 
-    public String getId() {
-        return null;
-    }
-
     @JsonIgnore
     @Override
     public String getUsername() {
@@ -51,7 +48,8 @@ public class User extends BaseEntity implements BaseUser {
     }
 
     @Override
-    public List<String> getProfiles() throws JsonProcessingException {
+    @SneakyThrows
+    public List<String> getProfiles() {
         var objectMapper = new ObjectMapper();
         return objectMapper.readValue(profiles, new TypeReference<>() {});
     }

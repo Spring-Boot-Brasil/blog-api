@@ -10,12 +10,12 @@ import java.util.Collection;
 public class JwtUser implements UserDetails {
 
     @JsonIgnore
-    private Long id;
+    private String id;
     private String username;
     private String password;
     private Collection<GrantedAuthority> authorities;
 
-    public JwtUser(Long id, String username, String password, Collection<GrantedAuthority> authorities) {
+    public JwtUser(String id, String username, String password, Collection<GrantedAuthority> authorities) {
         this.id = id;
         this.username = username;
         this.password = password;
