@@ -12,40 +12,46 @@ import org.mockito.Mockito;
 import javax.persistence.EntityManager;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class BaseMockTests {
 
-    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
     public final Controller controllers = new Controller();
-    public final Repository repositories = new Repository();
+    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    public static final Repository repositories;
+    public static Mapper mappers;
     public static final EntityManager em = Mockito.mock(EntityManager.class);
 
-    public BaseMockTests() throws ParseException {
+    static {
+        mappers = new Mapper();
+        try {
+            repositories = new Repository();
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
     }
 
+    public BaseMockTests() {}
+
     public static class Controller {
-        public final CategoryController categoryController = new CategoryController(Service.categoryService, Mapper.categoryMapper);
+        public final CategoryController categoryController = new CategoryController(Service.categoryService, mappers.categoryMapper);
     }
 
     public static class Service {
-        public static final CategoryService categoryService = new CategoryService(em, Repository.categoryRepository);
+        public static final CategoryService categoryService = new CategoryService(em, repositories.categoryRepository);
     }
 
     public static class Repository {
-        public static final CategoryRepository categoryRepository = Mockito.mock(CategoryRepository.class);
+        public final CategoryRepository categoryRepository = Mockito.mock(CategoryRepository.class);
 
         public Repository() throws ParseException {
             Mockito.when(categoryRepository.findAll())
                     .thenReturn(categoryListSample01());
         }
 
-        private List<Category> categoryListSample01() throws ParseException {
+        public List<Category> categoryListSample01() throws ParseException {
             var list = new ArrayList<Category>();
 
             // Category 01
@@ -63,13 +69,13 @@ public class BaseMockTests {
         public List<CategoryDto> categoryDtoListSample01() throws ParseException {
             return categoryListSample01()
                     .stream()
-                    .map(Mapper.categoryMapper::toDto)
+                    .map(mappers.categoryMapper::toDto)
                     .collect(Collectors.toList());
         }
     }
 
     public static class Mapper {
-        public static final CategoryMapper categoryMapper = new CategoryMapperImpl();
+        public final CategoryMapper categoryMapper = new CategoryMapperImpl();
     }
 
 }
